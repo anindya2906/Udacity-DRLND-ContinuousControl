@@ -14,7 +14,7 @@ class Actor(nn.Module):
     Maps state -> action
     """
 
-    def __init__(self, state_size, action_size, seed, fc1_units=400, fc2_unit=300):
+    def __init__(self, state_size, action_size, seed, fc1_units=128, fc2_unit=128):
         """Initialize parameters and build model.
         Params
         ======
@@ -47,7 +47,7 @@ class Critic(nn.Module):
     Maps (action, state)-> Q-value
     """
 
-    def __init__(self, state_size, action_size, seed, fcs1_units=400, fc2_units=300):
+    def __init__(self, state_size, action_size, seed, fcs1_units=128, fc2_units=128):
         """Initialize parameters and build model.
         Params
         ======
