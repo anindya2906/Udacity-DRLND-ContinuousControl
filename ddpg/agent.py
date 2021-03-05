@@ -24,6 +24,7 @@ class Agent():
         self.action_size = action_size
         self.config = config
         self.seed = random.seed(self.config['seed'])
+        self.time_step = 0
         
         # Action networks; Local and Target
         self.actor_local = Actor(self.state_size, self.action_size, self.config['seed']).to(self.config['device'])
@@ -45,9 +46,11 @@ class Agent():
         """Store experience and learn from a random batch"""
         self.memory.add(state, action, reward, next_state, done)
 
-        if len(self.memory) > self.config['batch_size']:
-            experiences = self.memory.sample()
-            self.learn(experiences, self.config['gamma'])
+        self.time_step = (self.time_step + 1) % self.config['update_every']
+        if self.time_step == 0:
+            if len(self.memory) > self.config['batch_size']:
+                experiences = self.memory.sample()
+                self.learn(experiences, self.config['gamma'])
 
     def act(self, state, add_noise=True):
         """Returns an action given a state based on the current policy"""
