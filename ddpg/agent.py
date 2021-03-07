@@ -80,8 +80,8 @@ class Agent():
         # Update Critic
         #-----------------------
         # Get predicted next state actions an Q-values from target models
-        actions_next = self.actor_local(next_states)
-        Q_target_next = self.critic_local(next_states, actions_next)
+        actions_next = self.actor_target(next_states)
+        Q_target_next = self.critic_target(next_states, actions_next)
         # Compute Q targets for current states
         Q_targets = rewards + (gamma * Q_target_next * (1 - dones))
         # Compute critic loss
