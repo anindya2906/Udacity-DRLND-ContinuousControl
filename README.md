@@ -38,7 +38,7 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 ```
 
 ## **Instructions**
-The training and Testing code is implemented in the [Continuous_Control.ipynb](./Continuous_Control.ipynb) Notebook.
+The Training and Testing code is implemented in the [Continuous_Control.ipynb](./Continuous_Control.ipynb) Notebook.
 To start the jupyter notebook run the below command from the root of this project folder.
 ```sh
 jupyter notebook
